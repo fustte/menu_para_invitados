@@ -14,23 +14,24 @@ Los elementos de un set son único, lo que significa que no puede haber elemento
 
 
 # Diccionario
-tipo_plato = {
-    "aperitivo":{"guacamole":{"cilantro fresco", "cebolla", "chile fresco", "ajo", "tomate",
-        "aguacates", "zumo de limon", "sal"}}, "primer plato":{"pimientos del piquillo rellenos":{"huevo duro", "palitos de cangrejo", "atún en aceite de oliva", "mayonesa", "pimientos del piquillo", "pimiento verde",
-        "pimiento rojo", "cebolla", "vinagre de vino", "sal", "aceite de oliva"}}, "postre":{"brownie de chocolate con helado de turrón":{"chocolate amargo", "mantequilla sin sal", "azúcar", "huevos", "sal fina", "harina de trigo", "nueces"}}
-
-}
 menu = {
-    "aperitivo": "guacamole": {
+    "aperitivo": {
+        "guacamole": {
         "cilantro fresco", "cebolla", "chile fresco", "ajo", "tomate",
         "aguacates", "zumo de limon", "sal"
+        }
     },
-    "primer plato: pimientos del piquillo rellenos": {
+    "primer plato": {
+        "pimientos del piquillo rellenos": {
         "huevo duro", "palitos de cangrejo", "atún en aceite de oliva", "mayonesa", "pimientos del piquillo", "pimiento verde",
         "pimiento rojo", "cebolla", "vinagre de vino", "sal", "aceite de oliva"
+        }
     },
-    "postre: brownie de chocolate con helado de turrón": { "chocolate amargo", "mantequilla sin sal", "azúcar", "huevos", "sal fina", "harina de trigo", "nueces"
-}
+    "postre": {
+         "brownie de chocolate con helado de turrón": {
+            "chocolate amargo", "mantequilla sin sal", "azúcar", "huevos", "sal fina", "harina de trigo", "nueces"
+         }
+    }
 }
 
 # Funcion
@@ -50,8 +51,8 @@ for ingrediente in lista_compra:
     print("-", ingrediente)
 """
 
-def ingredientes_por_plato(menu, plato):
-    ingredientes = menu.get(plato)
+def ingredientes_por_plato(menu, tipo_plato, plato):
+    ingredientes = menu[tipo_plato].get(plato)
     if ingredientes:
         print(f"\nIngredientes necesarios para {plato}:")
         for ingrediente in ingredientes:
@@ -62,13 +63,24 @@ def ingredientes_por_plato(menu, plato):
 def interactuar_con_usuario(menu):
     # Imprimo mensaje de introduccion
     print ("""\nEstás preparando un gran banquete para tu gente en casa
-            y quieres  preparar el menú y hacer la lista de la compra. El menú está formado por:\n""")
+            y quieres  preparar el menú y hacer la lista de la compra.
+            El menú está formado por:\n""")
     
-    print("Platos disponibles:")
-    for plato in menu.keys():
-        print("-", plato)
+    print("Tipos de platos disponibles:")
+    for tipo_plato in menu.keys():
+        print("-", tipo_plato)
+    tipo_plato_seleccionado = input("\n¿Qué tipo de plato quieres cocinar hoy (Aperitivo, Primer plato, Postre)? ")
 
-    plato_seleccionado = input("¿Qué plato quieres cocinar? ")
-    ingredientes_por_plato(menu, plato_seleccionado)
+    if tipo_plato_seleccionado in menu:
+        print(f"\nPlatos disponibles en {tipo_plato_seleccionado}:")
+        for plato in menu[tipo_plato_seleccionado].keys():
+            print("-", plato)
+
+        plato_seleccionado = input(f"\n¿Qué {tipo_plato_seleccionado} quieres cocinar hoy? ")
+        ingredientes_por_plato(menu, tipo_plato_seleccionado, plato_seleccionado)
+    else:
+        print(f"\nEl tipo de plato '{tipo_plato_seleccionado}' no está en el menú.")                               
+
+
 
 interactuar_con_usuario(menu)
