@@ -4,6 +4,12 @@
  hacer un programa para preparar el menú y hacer la lista de la compra.
  El menú está formado por:
  """
+# Ayuda Mi
+
+"""Los set en Python son un tipo que permite almacenar varios elementos y acceder a ellos de una forma muy similar a las listas pero con ciertas diferencias:
+Los elementos de un set son único, lo que significa que no puede haber elementos duplicados.
+"""
+""" La función update() del conjunto añade elementos sin duplicados. Si algún ingrediente ya está en lista_de_la_compra, no se añadirá de nuevo."""
 
 # Diccionario
 
@@ -20,13 +26,19 @@ menu = {
 }
 }
 
+# Funcion
+
+def lista_de_la_compra(menu):
+    lista_de_la_compra = set() # Lo pongo para que no se usen duplicados arriba explico 
+
+    for ingredientes in menu.values():
+        lista_de_la_compra.update(ingredientes) # arriba explico update
+
+    return list(lista_de_la_compra)    
 
 
+lista_compra = lista_de_la_compra(menu)
+print("Lista de la compra:")
+for ingrediente in lista_compra:
+    print("-", ingrediente)
 
-Con esa estructura de datos, crea una función que cree la lista de la compra.
-
-Ayuda a la implementación
-
-Puedes usar un diccionario para el menú y los platos, de forma que los ingredientes de cada plato sea un conjunto de ingredientes.
-
-Para simplificar utiliza solamente el nombre del ingrediente en singular y sin cantidades.
