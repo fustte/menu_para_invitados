@@ -11,6 +11,8 @@ Los elementos de un set son único, lo que significa que no puede haber elemento
 """
 """ La función update() del conjunto añade elementos sin duplicados. Si algún ingrediente ya está en lista_de_la_compra, no se añadirá de nuevo."""
 """ El lenguaje de programación C permite usar las secuencias de escape \n (nueva línea) y \r (retorno de carro)."""
+
+
 # Diccionario
 
 menu = {
@@ -63,3 +65,5 @@ def interactuar_con_usuario(menu):
 
     plato_seleccionado = input("¿Qué plato quieres cocinar? ")
     ingredientes_por_plato(menu, plato_seleccionado)
+
+interactuar_con_usuario(menu)
