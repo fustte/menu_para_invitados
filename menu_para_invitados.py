@@ -14,17 +14,22 @@ Los elementos de un set son único, lo que significa que no puede haber elemento
 
 
 # Diccionario
+tipo_plato = {
+    "aperitivo":{"guacamole":{"cilantro fresco", "cebolla", "chile fresco", "ajo", "tomate",
+        "aguacates", "zumo de limon", "sal"}}, "primer plato":{"pimientos del piquillo rellenos":{"huevo duro", "palitos de cangrejo", "atún en aceite de oliva", "mayonesa", "pimientos del piquillo", "pimiento verde",
+        "pimiento rojo", "cebolla", "vinagre de vino", "sal", "aceite de oliva"}}, "postre":{"brownie de chocolate con helado de turrón":{"chocolate amargo", "mantequilla sin sal", "azúcar", "huevos", "sal fina", "harina de trigo", "nueces"}}
 
+}
 menu = {
-    "Aperitivo: Guacamole": {
+    "aperitivo": "guacamole": {
         "cilantro fresco", "cebolla", "chile fresco", "ajo", "tomate",
         "aguacates", "zumo de limon", "sal"
     },
-    "Primer plato: Pimientos del piquillo rellenos": {
+    "primer plato: pimientos del piquillo rellenos": {
         "huevo duro", "palitos de cangrejo", "atún en aceite de oliva", "mayonesa", "pimientos del piquillo", "pimiento verde",
         "pimiento rojo", "cebolla", "vinagre de vino", "sal", "aceite de oliva"
     },
-    "Postre: Brownie de chocolate con helado de turrón": { "chocolate amargo", "mantequilla sin sal", "azúcar", "huevos", "sal fina", "harina de trigo", "nueces"
+    "postre: brownie de chocolate con helado de turrón": { "chocolate amargo", "mantequilla sin sal", "azúcar", "huevos", "sal fina", "harina de trigo", "nueces"
 }
 }
 
